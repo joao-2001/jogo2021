@@ -1,6 +1,8 @@
 package jogoteste;
 
 public enum ID {
-	Jogador(),
+	Jogador1(),
+	Jogador2(),
+	Projetil(),
 	Inimigo();
 }

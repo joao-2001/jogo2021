@@ -1,19 +1,22 @@
 package jogoteste;
 
 import java.awt.Graphics;
+import java.awt.Rectangle;
 
 public abstract class Entidade {
-	protected int altura;
-	protected int largura;
+	protected float altura;
+	protected float largura;
 	
-	protected int posicaoX, posicaoY;
+	protected float posicaoX, posicaoY;
 	
-	protected int velocidadeX;
-	protected int velocidadeY;
+	protected float velocidadeX;
+	protected float velocidadeY;
+	
+	GerenciadorDeEntidades gerenciador;
 	
 	protected ID id;
 	
-	public Entidade(int posx, int posy, int alt, int larg, ID id) {
+	public Entidade(float posx, float posy, float alt, float larg,GerenciadorDeEntidades gerenciador, ID id) {
 		posicaoX = posx;
 		posicaoY = posy;
 		altura = alt;
@@ -21,37 +24,41 @@ public abstract class Entidade {
 		this.id = id;
 		velocidadeX = 0;
 		velocidadeY = 0;
+		this.gerenciador = gerenciador;
 	}
 	
-	public void setPosX(int x) {
+	public void setPosX(float x) {
 		posicaoX = x;
 	}
-	public void setPosY(int y) {
+	public void setPosY(float y) {
 		posicaoY = y;
 	}
-	public void setVelX(int vx) {
+	public void setVelX(float vx) {
 		velocidadeX = vx;
 	}
-	public void setVelY(int vy) {
+	public void setVelY(float vy) {
 		velocidadeY = vy;
 	}
 	public void setID(ID id) {
 		this.id = id;
 	}
-	public int getPosX() {
+	public float getPosX() {
 		return posicaoX;
 	}
-	public int getPosY() {
+	public float getPosY() {
 		return posicaoY;
 	}
-	public int getVelX() {
+	public float getVelX() {
 		return velocidadeX;
 	}
-	public int getVelY() {
+	public float getVelY() {
 		return velocidadeY;
 	}
 	public ID getID() {
 		return id;
+	}
+	public Rectangle delimitar() {
+		return new Rectangle((int)posicaoX, (int)posicaoY, (int)altura, (int)largura);
 	}
 	
 	public abstract void tick();
