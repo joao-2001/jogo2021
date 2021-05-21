@@ -1,10 +1,16 @@
 package jogoteste;
 
-public class PrimeiraFase extends Fase {
+public class SegundaFase extends Fase {
 	private int criar;
 
-	public PrimeiraFase(GerenciadorDeEntidades gerenciador, HUD hud) {
+	public SegundaFase(GerenciadorDeEntidades gerenciador, HUD hud) {
 		super(gerenciador, hud);
+		
+//		Jogador jogador1 = new Jogador(100, 100, 50, 50, gerenciador, hud, ID.Jogador1); 
+//		Jogador jogador2 = new Jogador(100, 100, 50, 50, gerenciador, hud, ID.Jogador2);
+
+//		gerenciador.addEntidade(jogador1);
+//		gerenciador.addEntidade(jogador2);
 	}
 	
 	public void tick() {
@@ -22,10 +28,10 @@ public class PrimeiraFase extends Fase {
 					break;
 			}
 			
-			if(hud.score%250==0) {
+			if(hud.score%125==0) {
 				criar = 1;
 			}
-			if(hud.score%1000==0) {
+			if(hud.score%500==0) {
 				criar = 2;
 			}
 	}

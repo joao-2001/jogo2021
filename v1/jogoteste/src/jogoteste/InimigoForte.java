@@ -3,10 +3,10 @@ package jogoteste;
 import java.awt.Color;
 import java.awt.Graphics;
 
-public class InimigoComum extends Inimigo {
+public class InimigoForte extends Inimigo {
 	
-	InimigoComum(float posx, float posy, GerenciadorDeEntidades gerenciador, HUD hud, ID id){
-		super(posx, posy, 50, 50, gerenciador, 5, 10, hud, id);
+	InimigoForte(float posx, float posy, GerenciadorDeEntidades gerenciador, HUD hud, ID id){
+		super(posx, posy, 75, 75, gerenciador, 5, 20, hud, id);
 		this.setVelY(-3);
 	}
 	
@@ -20,7 +20,7 @@ public class InimigoComum extends Inimigo {
 		
 		if (vida == 0) {
 			gerenciador.entidades.remove(this);
-			hud.score += 50;
+			hud.score += 500;
 		}
 		
 		colide();
@@ -28,7 +28,7 @@ public class InimigoComum extends Inimigo {
 	
 	@Override
 	public void render(Graphics g) {
-		g.setColor(Color.red);
+		g.setColor(Color.CYAN);
 		g.fillRect((int)posicaoX, (int)posicaoY, (int)largura, (int)altura);
 		g.setColor(Color.green);
 		g.fillRect((int)posicaoX,(int)posicaoY - 15, (int)(vida*(largura/vidaMax)), 10);

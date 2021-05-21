@@ -6,8 +6,8 @@ public abstract class Inimigo extends Entidade {
 	int dano;
 	int vida, vidaMax;
 	
-	Inimigo(float posx, float posy, float alt, float larg, GerenciadorDeEntidades gerenciador, int dano, int vidaMax, ID id){
-		super(posx, posy, alt, larg, gerenciador, id);
+	Inimigo(float posx, float posy, float alt, float larg, GerenciadorDeEntidades gerenciador, int dano, int vidaMax, HUD hud, ID id){
+		super(posx, posy, alt, larg, gerenciador, hud, id);
 		this.dano = dano;
 		this.vidaMax = vidaMax;
 		this.vida = this.vidaMax;
