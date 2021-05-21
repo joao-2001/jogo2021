@@ -11,12 +11,15 @@ public abstract class Entidade {
 	
 	protected float velocidadeX;
 	protected float velocidadeY;
+
+	protected HUD hud;
+	
 	
 	GerenciadorDeEntidades gerenciador;
 	
 	protected ID id;
 	
-	public Entidade(float posx, float posy, float alt, float larg,GerenciadorDeEntidades gerenciador, ID id) {
+	public Entidade(float posx, float posy, float alt, float larg, GerenciadorDeEntidades gerenciador, HUD hud, ID id) {
 		posicaoX = posx;
 		posicaoY = posy;
 		altura = alt;
@@ -25,6 +28,7 @@ public abstract class Entidade {
 		velocidadeX = 0;
 		velocidadeY = 0;
 		this.gerenciador = gerenciador;
+		this.hud = hud;
 	}
 	
 	public void setPosX(float x) {

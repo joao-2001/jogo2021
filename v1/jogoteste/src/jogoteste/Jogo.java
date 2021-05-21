@@ -23,23 +23,21 @@ public class Jogo extends Canvas implements Runnable{
 	
 	public Jogo(){
 		gerenciador = new GerenciadorDeEntidades();
-		this.fase = new PrimeiraFase(gerenciador); 
+		
+		hud = new HUD();
+		
+		this.fase = new PrimeiraFase(gerenciador, hud); 
 		
 		
 		this.addMouseListener(new MouseInput(gerenciador));
 		this.addKeyListener(new KeyInput(gerenciador));
 		
 
-		new Janela(WIDTH, HEIGHT, "oi mae to no pc", this);
+		new Janela(WIDTH, HEIGHT, "jogo", this);
 		
-		Jogador jogador1 = new Jogador(100, 100, 50, 50, gerenciador, ID.Jogador1);
-		Jogador jogador2 = new Jogador(100, 100, 50, 50, gerenciador, ID.Jogador2);
-
-		gerenciador.addEntidade(jogador1);
-		gerenciador.addEntidade(jogador2);
 
 		
-		hud = new HUD();
+		
 		
 	}
 	
@@ -90,9 +88,10 @@ public class Jogo extends Canvas implements Runnable{
 	private void tick() {
 		gerenciador.tick();
 		this.fase.tick();
+		hud.tick();
 		
-		if (HUD.VIDA == 0) {
-			System.out.println("" + HUD.VIDA);
+		if (hud.VIDA == 0) {
+			System.out.println("" + hud.VIDA);
 			stop();
 			start();
 		}

@@ -7,8 +7,8 @@ public class Projetil extends Entidade{
 	int efetividade;
 	int efeito;
 	
-	Projetil(float posx, float posy, float velx, float vely, GerenciadorDeEntidades gerenciador, ID id) {
-		super(posx, posy, 10, 10, gerenciador, id);
+	Projetil(float posx, float posy, float velx, float vely, GerenciadorDeEntidades gerenciador, HUD hud, ID id) {
+		super(posx, posy, 10, 10, gerenciador, hud, id);
 		velocidadeX = velx;
 		velocidadeY = vely;
 		efetividade = 6;
