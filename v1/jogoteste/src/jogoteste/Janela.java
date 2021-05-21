@@ -7,9 +7,8 @@ import javax.swing.JFrame;
 
 public class Janela extends Canvas {
 	
-	/**
-	 * 
-	 */
+	JFrame frame;
+	
 	private static final long serialVersionUID = 8573400398478581536L;
 
 	public Janela(int largura, int altura, String titulo, Jogo jogo) {
@@ -25,5 +24,9 @@ public class Janela extends Canvas {
 		frame.add(jogo);
 		frame.setVisible(true);
 		jogo.start();
+	}
+	
+	public JFrame getFrame() {
+		return frame;
 	}
 }

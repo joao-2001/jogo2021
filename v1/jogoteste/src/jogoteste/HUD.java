@@ -5,15 +5,21 @@ import java.awt.Graphics;
 
 public class HUD {
 	
-	public static float VIDA = 100;
+	public  float VIDA = 100;
 	
-	public static int score = 0;
+	public int score = 1;
+ 
+	
+	public void tick() {
+		
+		score++;
+		VIDA = Jogo.clamp((int)VIDA, 0, 100);
 
+	}
 	
-	public static void tick(float dano) {
+	public void dano(float dano) {
 		VIDA -= dano;
 		
-		VIDA = Jogo.clamp((int)VIDA, 0, 100);
 	}
 	
 	public void render(Graphics g) {

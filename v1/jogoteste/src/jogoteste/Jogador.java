@@ -4,8 +4,10 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Jogador extends Entidade{
-	public Jogador(float posx, float posy, float alt, float larg, GerenciadorDeEntidades gerenciador, ID id) {
-		super(posx, posy, alt, larg, gerenciador, id);
+	private	String nome;
+	public Jogador(String nome, float posx, float posy, float alt, float larg, GerenciadorDeEntidades gerenciador, HUD hud, ID id) {
+		super(posx, posy, alt, larg, gerenciador, hud, id);
+		this.nome = nome;
 	}
 	
 	public void tick() {
@@ -25,7 +27,7 @@ public class Jogador extends Entidade{
 			
 			if(tempEnt.getID() == ID.Inimigo) {
 				if(delimitar().intersects(tempEnt.delimitar())) {
-					HUD.tick(((Inimigo)tempEnt).getDano());
+					hud.dano(((Inimigo)tempEnt).getDano());
 				}
 			}
 		}
@@ -43,6 +45,6 @@ public class Jogador extends Entidade{
 		float vely = (float)Math.floor(10 * (y - posicaoY)/Math.sqrt(Math.pow((y - posicaoY), 2) + Math.pow((x - posicaoX),2)));
 		float velx = (float)Math.floor(10 * (x - posicaoX)/Math.sqrt(Math.pow((y - posicaoY), 2) + Math.pow((x - posicaoX),2)));
 		
-		return new Projetil(posicaoX, posicaoY, velx, vely, gerenciador, ID.Projetil);
+		return new Projetil(posicaoX, posicaoY, velx, vely, gerenciador, hud, ID.Projetil);
 	}
 }
